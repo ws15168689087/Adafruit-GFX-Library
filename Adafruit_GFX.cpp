@@ -395,6 +395,56 @@ void Adafruit_GFX::drawPentagram(int16_t x0, int16_t y0,
 	drawLine(xd, yd, xe, ye, color);
 }
 
+// Draw a quadrangular star
+// @param x: 四角星中点的横坐标
+// @param y: 四角星中点的竖坐标
+// @param r: 中点与任一顶点之间的距离
+// @param f: 平坦度。该值越小，四角星的角越尖锐
+//           取值范围：(0, 1)
+void Adafruit_GFX::drawQuadStar(int16_t x, int16_t y, int16_t r, float f, uint16_t color) {
+    int a_x, a_y;
+    int b_x, b_y;
+    int c_x, c_y;
+    int d_x, d_y;
+    int ab_x, ab_y;
+    int bc_x, bc_y;
+    int cd_x, cd_y;
+    int da_x, da_y;
+    int delta;
+    a_x = x;
+    a_y = y - r;
+    b_x = x - r;
+    b_y = y;
+    c_x = x;
+    c_y = y + r;
+    d_x = x + r;
+    d_y = y;
+    if (f < 0 ) { 
+        f = 0; 
+    } else if (f > 1) {
+        f = 1;
+    } else {
+        f = f;
+    }
+    delta = int((f * r) / 2);
+    ab_x = x - delta;
+    ab_y = y - delta;
+    bc_x = x - delta;
+    bc_y = y + delta;
+    cd_x = x + delta;
+    cd_y = y + delta;
+    da_x = x + delta;
+    da_y = y - delta;
+    drawLine(a_x, a_y, ab_x, ab_y, color);
+    drawLine(b_x, b_y, ab_x, ab_y, color);
+    drawLine(b_x, b_y, bc_x, bc_y, color);
+    drawLine(c_x, c_y, bc_x, bc_y, color);
+    drawLine(c_x, c_y, cd_x, cd_y, color);
+    drawLine(d_x, d_y, cd_x, cd_y, color);
+    drawLine(d_x, d_y, da_x, da_y, color);
+    drawLine(a_x, a_y, da_x, da_y, color);
+}
+
 // Draw a ellipse outline
 void Adafruit_GFX::drawEllipse(int16_t x1, int16_t y1, int16_t x2, int16_t y2, int16_t a, uint16_t color) {
     int16_t max_x = ((x1 > x2 ? x1 : x2) + a > 128 ? (x1 > x2 ? x1 : x2) + a : 128);
