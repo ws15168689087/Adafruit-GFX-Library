@@ -445,6 +445,62 @@ void Adafruit_GFX::drawQuadStar(int16_t x, int16_t y, int16_t r, float f, uint16
     drawLine(a_x, a_y, da_x, da_y, color);
 }
 
+//Draw a tree
+void Adafruit_GFX::drawTree(uint16_t color){
+	int a1_x = 64;
+	int a1_y = 4;
+	int b1_x = 60;
+	int b1_y = 8;
+	int c1_x = 68;
+	int c1_y = 8;
+	drawLine(a1_x , a1_y , b1_x, b1_y, color);
+	drawLine(a1_x , a1_y , c1_x, c1_y, color);
+	drawLine(b1_x , b1_y , c1_x, c1_y, color);
+	int a2_x = 64;
+	int a2_y = 8;
+	int b2_x = 56;
+	int b2_y = 16;
+	int c2_x = 72;
+	int c2_y = 16;
+	drawLine(a2_x , a2_y , b2_x, b2_y, color);
+	drawLine(a2_x , a2_y , c2_x, c2_y, color);
+	drawLine(b2_x , b2_y , c2_x, c2_y, color);
+	int a3_x = 64;
+	int a3_y = 16;
+	int b3_x = 50;
+	int b3_y = 26;
+	int c3_x = 78;
+	int c3_y = 26;
+	drawLine(a3_x , a3_y , b3_x, b3_y, color);
+	drawLine(a3_x , a3_y , c3_x, c3_y, color);
+	drawLine(b3_x , b3_y , c3_x, c3_y, color);
+	int a4_x = 64;
+	int a4_y = 26;
+	int b4_x = 44;
+	int b4_y = 40;
+	int c4_x = 84;
+	int c4_y = 40;
+	drawLine(a4_x , a4_y , b4_x, b4_y, color);
+	drawLine(a4_x , a4_y , c4_x, c4_y, color);
+	drawLine(b4_x , b4_y , c4_x, c4_y, color);
+	
+	int aa_x = 60;
+	int aa_y = 40;
+	int bb_x = 68;
+	int bb_y = 40;
+	int cc_x = 60;
+	int cc_y = 50;
+	int dd_x = 68;
+	int dd_y = 50;
+	drawLine(aa_x , aa_y , cc_x, cc_y, color);
+	drawLine(bb_x , bb_y , dd_x, dd_y, color);
+	drawLine(cc_x , cc_y , dd_x, dd_y, color);	
+}
+
+
+
+
+
 // Draw a ellipse outline
 void Adafruit_GFX::drawEllipse(int16_t x1, int16_t y1, int16_t x2, int16_t y2, int16_t a, uint16_t color) {
     int16_t max_x = ((x1 > x2 ? x1 : x2) + a > 128 ? (x1 > x2 ? x1 : x2) + a : 128);
